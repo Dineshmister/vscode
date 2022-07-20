@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vscode</title>
+</head>
+
+<body>
+    <style>
+        :root{
+            --brand-text:rgba(255, 255, 255, 0.815);
+            --grey:rgb(39, 39, 39);
+            --top-text:rgb(150, 150, 150);
+            --black:rgb(24, 24, 24);
+            --white:white;
+            --secondary:rgba(15, 15, 15, 0.911);
+        }
+        body {
+            overflow: hidden;
+            position: relative;
+            background-color: rgba(220, 220, 220, 0.658);
+        }
+
+        .vs-container {
+            width: 100%;
+            height: 100vh;
+            /* border: 1px solid red; */
+        }
+
+        .menu {
+            display: flex;
+            width: 100%;
+            height: 35px;
+            font-size: 14px;
+            align-items: center;
+            justify-content: start;
+            background-color:var(--grey);
+            text-transform: capitalize;
+            color: var(--brand-text);
+            fill: var(--top-text);
+            font-weight: 400;
+            cursor: pointer;
+
+        }
+
+        .menu-1 {
+            /* border: 1px solid red; */
+            width: 30%;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .title {
+            display: grid;
+            place-items: center;
+            width: 700px;
+            height: inherit;
+            /* color: white; */
+            /* border: 1px solid red; */
+        }
+
+        .buttons {
+            width: 120px;
+            height: inherit;
+            /* border: 1px solid yellow; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-right: 10px;
+        }
+
+        .buttons>span>svg {
+            width: 14px;
+            height: 14px;
+            margin: 0 4px;
+            fill: var(--brand-text);
+        }
+
+
+        .side-bar {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: absolute;
+            left: 0;
+            width: 50px;
+            height: 90vh;
+            background-color: var(--grey);
+            fill: var(--top-text);
+            cursor: pointer;
+            /* border: 1px solid red; */
+        }
+
+        .second {
+            position: absolute;
+            left: 50px;
+            /* border: 1px solid gray; */
+            width: 96.6%;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            background-color: var(--secondary);
+
+        }
+
+        .main {
+            position: absolute;
+            top: 73px;
+            left: 50px;
+            width: 96.7%;
+            height: 84vh;
+            display: flex;
+            background-color: var(--black);
+            color:gray
+            /* border: 1px solid black; */
+        }
+
+        .one-block {
+            /* padding-top: 40px; */
+            padding-left: 100px;
+            width: 50%;
+            height: inherit;
+            /* border: 1px solid pink; */
+        }
+
+        .brand-name {
+            font-weight: 400;
+            line-height: .7cm;
+            color: var(--brand-text);
+        }
+
+        .brand-box {
+            margin-top: 40px;
+            /* padding-top:10px ; */
+            width: 100%;
+            height: 80px;
+            text-transform: capitalize;
+            /* border: 1px solid red; */
+        }
+
+        .block-ele>li {
+            margin: 15px 0;
+            width: 430px;
+            height: 70px;
+            color: var(--brand-text);
+            /* border: 1px solid yellow; */
+            border-radius: 10px; 
+            background-color: rgba(37, 37, 37, 0.603);
+            /*  */
+        }
+        .block-ele > li:hover{
+            background-color: rgba(37, 37, 37);
+        }
+
+        .block-ele>li:nth-child(3) {
+            height: 50px;
+
+        }
+
+        .block-ele>li:nth-child(4) {
+            height: 50px;
+
+        }
+
+        .two-block {
+            width: 50%;
+            height: inherit;
+            /* border: 1px solid red; */
+
+        }
+
+        .sub-head {
+            font-size: 21px;
+            font-weight: 200;
+            text-transform: capitalize;
+            color: var(--brand-text);
+        }
+
+        .brand-sub {
+            font-weight: 400;
+
+        }
+
+        .get-started {
+
+            width: 130px;
+            height: inherit;
+            display: flex;
+            justify-content: stretch;
+            align-items: center;
+            /* place-items: center; */
+            text-transform: capitalize;
+            /* background-color: rgba(255, 255, 255, 0.377); */
+            font-size: 14px;
+            background-color: var(--black);
+            color: var(--white);
+            fill: var(--white);
+        }
+
+        .start>li {
+            color: rgb(0, 162, 255);
+            text-transform: capitalize;
+            font-size: 14px;
+            font-weight: 200;
+            line-height: .7cm;
+            /* list-style: 1px; */
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 4.5vh;
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: capitalize;
+            font-size: small;
+            color: var(--white);
+            fill: var(--white);
+            background-color: rgb(131, 1, 253);
+        }
+
+        footer>span>svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        footer>div>span>svg {
+            width: 13px;
+            height: 13px;
+
+        }
+
+        .dummy-text {
+            padding-top: 7px;
+            padding-left: 10px;
+            font-size: 14px;
+            text-transform: capitalize;
+            color:var(--brand-text);
+        }
+
+        .bottom-icon {
+            width: inherit;
+            height: 100px;
+            /* border: 1px solid red; */
+            /* margin-bottom: 0; */
+            /* justify-content: space-between; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .bottom-icon>svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--top-text);
+            margin: 10px 0;
+        }
+
+        .top-icon {
+            width: inherit;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* gap: 20px; */
+        }
+
+        .top-icon>svg {
+            width: inherit;
+            padding: 0 10px;
+            height: 35px;
+            margin: 10px 0;
+            fill: gray;
+            
+        }
+        .top-icon>svg:nth-child(1){
+            border-left: 2px solid var(--brand-text) ;
+
+        }
+
+        .top-icon > svg:hover{
+            fill: var(--brand-text);
+            
+        }
+        .bottom-icon > svg:hover{
+            fill: var(--brand-text);
+            
+
+        }
+
+        .vscode>svg {
+            width: 17px;
+            height: 17px;
+            margin: 0 4px;
+
+        }
+
+        .close>svg {
+            width: 14px;
+            height: 14px;
+            margin-right: 7px;
+            /* fill: var(--white); */
+            /* color: var(--white); */
+            /* filter: brightness(-122%); */
+        }
+        .last{
+            fill: var(--grey);
+        }
+        .github > svg{
+            fill: var(--secondary);
+        }
+        
+
+        .icon>svg {
+            width: 23px;
+            height: 23px;
+            margin: 0 10px;
+            /* padding: 10px; */
+        }
+
+        .open-file>svg {
+            width: 13px;
+            height: 13px;
+            fill: rgb(0, 162, 255);
+        }
+        /* hiding */
+        .file:hover ~ .nav-1{
+            display: flex;
+        }
+        .edit:hover ~ .nav-2{
+            display: flex;
+            left: 7%;
+            height: 380px;
+        }
+        .selection:hover ~ .nav-3{
+            display: flex;
+            left: 10%;
+            /* height: 340px; */
+        }
+        .view:hover ~ .nav-4{
+            display: flex;
+            left: 15%;
+            /* height: 490px; */
+        }
+        .go:hover ~ .nav-5{
+            display: flex;
+            left: 19%;
+            /* height:500px ; */
+        }
+        .run:hover ~ .nav-6{
+            display: flex;
+            left: 21%;
+            height: fit-content;
+        }
+        .terminal:hover ~ .nav-7{
+            display: flex;
+            left: 25%;
+            height: 180px;
+        }
+        .help:hover ~ .nav-8{
+            display: flex;
+            left:30% ;
+            /* height: 330px; */
+        }
+
+
+
+        .hide-nav{
+            display:none;
+            flex-direction: column;
+            position: absolute;
+            left: 4%;
+            top: 5%;
+            width: 300px;
+            height: 430px;
+            border-radius: 7px;
+            /* border: 1px solid red; */
+            z-index: 20;
+            /* background-color: var(--grey); */
+            color: var(--brand-text);
+        }
+        .three-block{
+            flex: .3;
+            border-bottom: 1px solid var(--top-text);
+            color: var(--brand-text);
+            background-color: var(--grey);
+           
+        }
+        .three-block > ul{
+            /* flex: 1; */
+
+            margin: 4px 0;
+        }
+        .three-block > ul > li{
+            /* background-color: red; */
+            padding: 4px 26px;
+            margin: 4px 0;
+            display: flex;
+            /* width: 100%; */
+        }
+        .two-three-block{
+            flex: 1;
+            /* border-bottom: 1px solid var(--top-text); */
+            background-color: var(--grey);
+        }
+        .two-three-block > ul{
+            margin: 4px 0;
+        }
+        .two-three-block > ul > li{
+            padding: 5px 26px;
+            margin: 10px 0;
+            display: flex;
+            /* background-color: red; */
+
+        }
+        .one-three-block{
+            background-color: var(--grey);
+            flex: 1;
+            
+            
+        }
+        .one-three-block > ul{
+            margin: 4px 0;
+        }
+        .one-three-block > ul > li{
+            margin: 10px 0;
+            padding: 4px 26px;
+            display: flex;
+            /* background-color: red; */
+        }
+        li > .ctrl{
+            margin-left: auto;
+        }
+      
+    </style>
+    <div class="vs-container">
+        <div class="menu">
+            <div class="icon">
+                <svg width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <title>file_type_vscode</title>
+                    <path
+                        d="M29.01,5.03,23.244,2.254a1.742,1.742,0,0,0-1.989.338L2.38,19.8A1.166,1.166,0,0,0,2.3,21.447c.025.027.05.053.077.077l1.541,1.4a1.165,1.165,0,0,0,1.489.066L28.142,5.75A1.158,1.158,0,0,1,30,6.672V6.605A1.748,1.748,0,0,0,29.01,5.03Z"
+                        style="fill:#0065a9" />
+                    <path
+                        d="M29.01,26.97l-5.766,2.777a1.745,1.745,0,0,1-1.989-.338L2.38,12.2A1.166,1.166,0,0,1,2.3,10.553c.025-.027.05-.053.077-.077l1.541-1.4A1.165,1.165,0,0,1,5.41,9.01L28.142,26.25A1.158,1.158,0,0,0,30,25.328V25.4A1.749,1.749,0,0,1,29.01,26.97Z"
+                        style="fill:#007acc" />
+                    <path
+                        d="M23.244,29.747a1.745,1.745,0,0,1-1.989-.338A1.025,1.025,0,0,0,23,28.684V3.316a1.024,1.024,0,0,0-1.749-.724,1.744,1.744,0,0,1,1.989-.339l5.765,2.772A1.748,1.748,0,0,1,30,6.6V25.4a1.748,1.748,0,0,1-.991,1.576Z"
+                        style="fill:#1f9cf0" />
+                </svg>
+            </div>
+            <div class="menu-1">
+                <div class="file">
+                    file
+                </div>
+                <div class="hide-nav nav-1">
+                    <div class="three-block">
+                       <ul class="list-unstyled">
+                        <li>new text file <span class="ctrl">ctrl+N</span> </li>
+                        <li>new file <span class="ctrl">ctrl+N</span></li>
+                        <li>new window <span class="ctrl">ctrl+N</span></li>
+                       </ul>
+
+                       
+
+                    </div>
+                    <div class="two-three-block">
+                        <ul class="list-unstyled unordered">
+                            <li>open file <span class="ctrl">ctrl+N</span></li>
+                            <li>open folder <span class="ctrl">ctrl+N</span></li>
+                            <li>open workspace <span class="ctrl">ctrl+N</span></li>
+                            <li>open recent <span class="ctrl">ctrl+N</span></li>
+                            <li>add folder to workspace</li>
+                            <li>save workspce as..</li>
+                            <li>preference</li>
+                            <li>duplicate workspace</li>
+                            
+                           </ul>
+                           
+
+                    </div>
+                    
+                </div>
+                <div class="edit">
+                    edit
+                </div>
+                <div class="hide-nav nav-2">
+                    <div class="three-block">
+                        <ul class="list-unstyled">
+                         <li>undo <span class="ctrl">ctrl+Z</span> </li>
+                         <li>redo <span class="ctrl">ctrl+Y</span></li>
+                         <li>find<span class="ctrl">ctrl+F</span></li>
+                        </ul>
+ 
+                        
+ 
+                     </div>
+                     <div class="two-three-block">
+                         <ul class="list-unstyled unordered">
+                             <li>replace <span class="ctrl">ctrl+H</span></li>
+                             <li>cut<span class="ctrl">ctrl+X</span></li>
+                             <li>copy<span class="ctrl">ctrl+C</span></li>
+                             <li>paste <span class="ctrl">ctrl+P</span></li>
+                             <li>find in files <span class="ctrl">ctrl+shift+F</span></li>
+                             <li>replace in files <span class="ctrl">ctrl+shift+H</span></li>
+                             
+                            </ul>
+                            
+ 
+                     </div>
+                     
+                    
+                </div>
+                
+                <div class="selection">selection</div>
+                <div class="hide-nav nav-3">
+                    <div class="three-block">
+                        <ul class="list-unstyled">
+                         <li>new text file <span class="ctrl">ctrl+N</span> </li>
+                         <li>new file <span class="ctrl">ctrl+N</span></li>
+                         <li>new window <span class="ctrl">ctrl+N</span></li>
+                        </ul>
+ 
+                        
+ 
+                     </div>
+                     <div class="two-three-block">
+                         <ul class="list-unstyled unordered">
+                             <li>open file <span class="ctrl">ctrl+N</span></li>
+                             <li>open folder <span class="ctrl">ctrl+N</span></li>
+                             <li>open workspace <span class="ctrl">ctrl+N</span></li>
+                             <li>open recent <span class="ctrl">ctrl+N</span></li>
+                             <li>add folder to workspace</li>
+                             <li>save workspce as..</li>
+                             <li>preference</li>
+                             <li>duplicate workspace</li>
+                             
+                            </ul>
+                            
+ 
+                     </div>
+                     
+
+                </div>
+                
+                <div class="view">view</div>
+                <div class="hide-nav nav-4">
+                    <div class="three-block">
+                        <ul class="list-unstyled">
+                         <li>new text file <span class="ctrl">ctrl+N</span> </li>
+                         <li>new file <span class="ctrl">ctrl+N</span></li>
+                         <li>new window <span class="ctrl">ctrl+N</span></li>
+                        </ul>
+ 
+                        
+ 
+                     </div>
+                     <div class="two-three-block">
+                         <ul class="list-unstyled unordered">
+                             <li>open file <span class="ctrl">ctrl+N</span></li>
+                             <li>open folder <span class="ctrl">ctrl+N</span></li>
+                             <li>open workspace <span class="ctrl">ctrl+N</span></li>
+                             <li>open recent <span class="ctrl">ctrl+N</span></li>
+                             <li>add folder to workspace</li>
+                             <li>save workspce as..</li>
+                             <li>preference</li>
+                             <li>duplicate workspace</li>
+                             
+                            </ul>
+                            
+ 
+                     </div>
+                     
+
+                </div>
+                
+                <div class="go">go</div>
+                <div class="hide-nav nav-5">
+                    <div class="three-block">
+                        <ul class="list-unstyled">
+                         <li>new text file <span class="ctrl">ctrl+N</span> </li>
+                         <li>new file <span class="ctrl">ctrl+N</span></li>
+                         <li>new window <span class="ctrl">ctrl+N</span></li>
+                        </ul>
+ 
+                        
+ 
+                     </div>
+                     <div class="two-three-block">
+                         <ul class="list-unstyled unordered">
+                             <li>open file <span class="ctrl">ctrl+N</span></li>
+                             <li>open folder <span class="ctrl">ctrl+N</span></li>
+                             <li>open workspace <span class="ctrl">ctrl+N</span></li>
+                             <li>open recent <span class="ctrl">ctrl+N</span></li>
+                             <li>add folder to workspace</li>
+                             <li>save workspce as..</li>
+                             <li>preference</li>
+                             <li>duplicate workspace</li>
+                             
+                            </ul>
+                            
+ 
+                     </div>
+                     
+
+                </div>
+                
+                <div class="run">run</div>
+                <div class="hide-nav nav-6">
+                    <div class="three-block">
+                        <ul class="list-unstyled">
+                         <li>start debugging <span class="ctrl">F5</span> </li>
+                         <li>run without debugging <span class="ctrl">ctrl+F5</span></li>
+                         <li>toggle brakpoints<span class="ctrl"></span></li>
+                        </ul>
+ 
+                        
+ 
+                     </div>
+                     <div class="two-three-block">
+                         <ul class="list-unstyled unordered">
+                             <li>new breakpoint<span class="ctrl"></span></li>
+                             <li>enable all breakpoint<span class="ctrl"></span></li>
+                             
+                            </ul>
+                            
+ 
+                     </div>
+                     
+
+                </div>
+                
+                <div class="terminal">terminal</div>
+                <div class="hide-nav nav-7">
+                    <div class="three-block">
+                        <ul class="list-unstyled">
+                         <li>new terminal <span class="ctrl">ctrl+`</span> </li>
+                         <li>run task <span class="ctrl"></span></li>
+                         <li>run build task <span class="ctrl"></span></li>
+                        </ul>
+ 
+                        
+ 
+                     </div>
+                     <div class="two-three-block">
+                         <ul class="list-unstyled unordered">
+                             <li>run selected text<span class="ctrl"></span></li>
+                             <li>configure task<span class="ctrl"></span></li>
+                             <!-- <li>run active file <span class="ctrl"></span></li> -->
+                             <!-- <li>open recent <span class="ctrl">ctrl+N</span></li>
+                             <li>add folder to workspace</li>
+                             <li>save workspce as..</li>
+                             <li>preference</li>
+                             <li>duplicate workspace</li>
+                              -->
+                            </ul>
+                            
+ 
+                     </div>
+                     
+
+                </div>
+                
+                <div class="help">help</div>
+                <div class="hide-nav nav-8">
+                    <div class="three-block">
+                        <ul class="list-unstyled">
+                         <li>get started <span class="ctrl"></span> </li>
+                         <li>show all commands <span class="ctrl">ctrl+shift+p</span></li>
+                         <li>documentation<span class="ctrl"></span></li>
+                        </ul>
+ 
+                        
+ 
+                     </div>
+                     <div class="two-three-block">
+                         <ul class="list-unstyled unordered">
+                             <li>release notes<span class="ctrl"></span></li>
+                             <li>keybord shortcuts<span class="ctrl">ctrl+K ctrl+R</span></li>
+                             <li>video tutorials <span class="ctrl"></span></li>
+                             <li>tips and tricks <span class="ctrl"></span></li>
+                             <li>report issues</li>
+                             <li>view license</li>
+                             <li>privacy statements</li>
+                             <li>check for updates</li>
+                             
+                            </ul>
+                            
+ 
+                     </div>
+                     
+
+                </div>
+                
+
+
+
+            </div>
+            <div class="title">
+                get started-visual studio code
+
+
+            </div>
+            <div class="buttons ms-auto">
+                <span>
+                    <?xml version="1.0" encoding="iso-8859-1"?>
+                    <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455 455"
+                        style="enable-background:new 0 0 455 455;" xml:space="preserve">
+                        <rect y="212.5" width="455" height="30" />
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                    </svg>
+
+
+                </span>
+                <span>
+                    <?xml version="1.0" encoding="iso-8859-1"?>
+                    <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60"
+                        style="enable-background:new 0 0 60 60;" xml:space="preserve">
+                        <path d="M0,0v60h60V0H0z M58,58H2V2h56V58z" />
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                    </svg>
+
+
+                </span>
+                <span class="fill-close">
+                    <?xml version="1.0" ?>
+                    <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+                    <svg width="512px" height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                        version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="_x37_12-_close__x2C__cross__x2C__cancel__x2C_">
+                            <g>
+                                <line
+                                    style="fill:none;stroke: gainsboro;stroke-width:13.4167;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.6131;"
+                                    x1="486.21" x2="26.739" y1="26.814" y2="486.139" />
+                                <line
+                                    style="fill:none;stroke: gainsboro;stroke-width:13.4167;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.6131;"
+                                    x1="486.21" x2="26.739" y1="486.139" y2="26.814" />
+                            </g>
+                        </g>
+                        <g id="Layer_1" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="side-bar">
+            <div class="top-icon">
+
+
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511 511"
+                    style="enable-background:new 0 0 511 511;" xml:space="preserve">
+                    <path d="M454.962,110.751c-0.018-0.185-0.05-0.365-0.081-0.545c-0.011-0.06-0.016-0.122-0.028-0.182
+	c-0.043-0.215-0.098-0.425-0.159-0.632c-0.007-0.025-0.012-0.052-0.02-0.077c-0.065-0.213-0.141-0.421-0.224-0.625
+	c-0.008-0.021-0.015-0.043-0.023-0.064c-0.081-0.195-0.173-0.384-0.269-0.57c-0.016-0.031-0.029-0.063-0.045-0.094
+	c-0.093-0.173-0.196-0.339-0.301-0.504c-0.027-0.042-0.05-0.086-0.077-0.127c-0.103-0.154-0.216-0.3-0.33-0.446
+	c-0.037-0.048-0.07-0.098-0.109-0.145c-0.142-0.173-0.294-0.338-0.45-0.498c-0.015-0.015-0.027-0.031-0.042-0.046l-104-104
+	c-0.018-0.018-0.038-0.033-0.057-0.051c-0.156-0.153-0.317-0.301-0.486-0.44c-0.055-0.045-0.113-0.083-0.169-0.126
+	c-0.138-0.107-0.275-0.214-0.42-0.311c-0.051-0.034-0.105-0.062-0.156-0.095c-0.156-0.099-0.312-0.197-0.475-0.284
+	c-0.036-0.019-0.074-0.035-0.111-0.053c-0.181-0.093-0.365-0.183-0.554-0.262c-0.024-0.01-0.049-0.017-0.074-0.027
+	c-0.202-0.081-0.406-0.157-0.616-0.221c-0.027-0.008-0.054-0.013-0.081-0.021c-0.206-0.06-0.415-0.115-0.628-0.158
+	c-0.063-0.013-0.128-0.018-0.192-0.029c-0.177-0.031-0.354-0.062-0.536-0.08C344.001,0.013,343.751,0,343.5,0h-248
+	C73.72,0,56,17.72,56,39.5v432c0,21.78,17.72,39.5,39.5,39.5h320c21.78,0,39.5-17.72,39.5-39.5v-360
+	C455,111.249,454.987,110.999,454.962,110.751z M351,25.606L429.394,104H375.5c-13.509,0-24.5-10.99-24.5-24.5V25.606z M415.5,496
+	h-320C81.991,496,71,485.01,71,471.5v-432C71,25.99,81.991,15,95.5,15H336v64.5c0,21.78,17.72,39.5,39.5,39.5H440v352.5
+	C440,485.01,429.009,496,415.5,496z" />
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                </svg>
+                <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M7,12 L14.5,12 C16.277025,12 17.7447372,10.6756742 17.970024,8.96013518 C16.2885152,8.7047201 15,7.25283448 15,5.5 C15,3.56700338 16.5670034,2 18.5,2 C20.4329966,2 22,3.56700338 22,5.5 C22,7.27155475 20.6838151,8.73569805 18.9759671,8.96790818 C18.7419236,11.2333126 16.8272778,13 14.5,13 L7,13 L7,15.0354444 C8.69614707,15.2780593 10,16.736764 10,18.5 C10,20.4329966 8.43299662,22 6.5,22 C4.56700338,22 3,20.4329966 3,18.5 C3,16.736764 4.30385293,15.2780593 6,15.0354444 L6,8.96455557 C4.30385293,8.72194074 3,7.26323595 3,5.5 C3,3.56700338 4.56700338,2 6.5,2 C8.43299662,2 10,3.56700338 10,5.5 C10,7.26323595 8.69614707,8.72194074 7,8.96455557 L7,12 Z M4,18.5 C4,19.8807119 5.11928813,21 6.5,21 C7.88071187,21 9,19.8807119 9,18.5 C9,17.1192881 7.88071187,16 6.5,16 C5.11928813,16 4,17.1192881 4,18.5 Z M4,5.5 C4,6.88071187 5.11928813,8 6.5,8 C7.88071187,8 9,6.88071187 9,5.5 C9,4.11928813 7.88071187,3 6.5,3 C5.11928813,3 4,4.11928813 4,5.5 Z M18.5,3 C17.1192881,3 16,4.11928813 16,5.5 C16,6.88071187 17.1192881,8 18.5,8 C19.8807119,8 21,6.88071187 21,5.5 C21,4.11928813 19.8807119,3 18.5,3 Z" />
+                </svg>
+                <svg width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M5 2.41L5.78 2L14.78 8V8.83L9 12.6833V11.4826L13.6 8.42L6 3.35V7H5V2.41Z" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M4.87227 7.80803C4.02215 7.7549 3.16715 7.9667 2.46857 8.44931C1.71646 8.9338 1.23555 9.6327 0.970474 10.4798C0.70131 11.2888 0.756984 12.1983 1.07646 12.997C1.39862 13.8024 1.98841 14.444 2.73373 14.8699C3.48976 15.3019 4.34985 15.407 5.20068 15.2475C6.06198 15.086 6.81126 14.6028 7.34443 13.963L7.34919 13.9568C7.87759 13.2698 8.20141 12.468 8.20141 11.6053C8.20141 10.5403 7.82698 9.63047 7.13464 8.88488L7.12941 8.87965C6.54444 8.29468 5.74055 7.8623 4.87227 7.80803ZM2.95059 9.18281C3.4627 8.81037 4.12262 8.66604 4.74312 8.71377L4.74421 8.71385C5.40049 8.76073 5.96469 9.04069 6.44119 9.51719C6.95689 10.0329 7.24402 10.7907 7.24402 11.5546V11.5618L7.24453 11.5689C7.29089 12.2179 7.0608 12.8292 6.67758 13.3579C6.25159 13.8765 5.68456 14.2071 5.06818 14.3493C4.45885 14.49 3.80161 14.3963 3.23776 14.0674C2.66626 13.7341 2.23786 13.259 1.95045 12.6362C1.67052 12.0297 1.66791 11.3722 1.85872 10.752L1.85983 10.7482C2.04996 10.0827 2.42849 9.56252 2.95059 9.18281ZM4.5051 11.0124L3.29191 9.7487L2.65431 10.3863L3.87316 11.6559L2.65431 12.9256L3.29191 13.5632L4.5051 12.2994L5.71829 13.5632L6.35589 12.9256L5.13704 11.6559L6.35589 10.3863L5.71829 9.7487L4.5051 11.0124Z" />
+                </svg>
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13 3H21V11H13V3ZM15 5H19V9H15V5Z" fill="grey" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M17 21V13H11V7H3V21H17ZM9 9H5V13H9V9ZM5 19L5 15H9V19H5ZM11 19V15H15V19H11Z" fill="grey" />
+                </svg>
+
+
+
+
+            </div>
+            <div class="bottom-icon">
+                <span class="my-2">
+                    <a href="https://github.com/Dineshmister" class="ms-auto github">
+                        <svg width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z" />
+                        </svg>
+                    </a>
+
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                    <path
+                        d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                </svg>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="second">
+            <div class="get-started">
+                <span class="vscode">
+                    <svg width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                        <title>file_type_vscode</title>
+                        <path
+                            d="M29.01,5.03,23.244,2.254a1.742,1.742,0,0,0-1.989.338L2.38,19.8A1.166,1.166,0,0,0,2.3,21.447c.025.027.05.053.077.077l1.541,1.4a1.165,1.165,0,0,0,1.489.066L28.142,5.75A1.158,1.158,0,0,1,30,6.672V6.605A1.748,1.748,0,0,0,29.01,5.03Z"
+                            style="fill:#0065a9" />
+                        <path
+                            d="M29.01,26.97l-5.766,2.777a1.745,1.745,0,0,1-1.989-.338L2.38,12.2A1.166,1.166,0,0,1,2.3,10.553c.025-.027.05-.053.077-.077l1.541-1.4A1.165,1.165,0,0,1,5.41,9.01L28.142,26.25A1.158,1.158,0,0,0,30,25.328V25.4A1.749,1.749,0,0,1,29.01,26.97Z"
+                            style="fill:#007acc" />
+                        <path
+                            d="M23.244,29.747a1.745,1.745,0,0,1-1.989-.338A1.025,1.025,0,0,0,23,28.684V3.316a1.024,1.024,0,0,0-1.749-.724,1.744,1.744,0,0,1,1.989-.339l5.765,2.772A1.748,1.748,0,0,1,30,6.6V25.4a1.748,1.748,0,0,1-.991,1.576Z"
+                            style="fill:#1f9cf0" />
+                    </svg>
+                </span>
+                <i>get started</i>
+                <span class="close ms-auto">
+                    <?xml version="1.0" ?>
+                    <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+                    <svg width="512px" height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                        version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="_x37_12-_close__x2C__cross__x2C__cancel__x2C_">
+                            <g>
+                                <line
+                                    style="fill:none;stroke:white;stroke-width:13.4167;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.6131;"
+                                    x1="486.21" x2="26.739" y1="26.814" y2="486.139" />
+                                <line
+                                    style="fill:none;stroke: white;stroke-width:13.4167;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.6131;"
+                                    x1="486.21" x2="26.739" y1="486.139" y2="26.814" />
+                            </g>
+                        </g>
+                        <g id="Layer_1" />
+                    </svg>
+                </span>
+            </div>
+            <div class="last ms-auto me-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path
+                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                </svg>
+
+
+            </div>
+
+        </div>
+
+        <div class="main">
+            <div class="one-block">
+                <div class="brand-box">
+                    <h1 class="brand-name">visual studio code</h1>
+                    <h3 class="brand-sub">Editing evolved</h3>
+
+                </div>
+
+                <div class="first-info d-block">
+                    <p class="sub-head">start</p>
+                    <ul class="list-unstyled start">
+                        <li>
+                            <span>
+                                <svg width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M9.5 1.1l3.4 3.5.1.4v2h-1V6H8V2H3v11h4v1H2.5l-.5-.5v-12l.5-.5h6.7l.3.1zM9 2v3h2.9L9 2zm4 14h-1v-3H9v-1h3V9h1v3h3v1h-3v3z" />
+                                </svg>
+                            </span>
+                            new file
+                        </li>
+                        <li>
+                            <span class="open-file">
+                                <?xml version="1.0" encoding="iso-8859-1"?>
+                                <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                                <!DOCTYPE svg
+                                    PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511 511"
+                                    style="enable-background:new 0 0 511 511;" xml:space="preserve">
+                                    <path d="M454.962,110.751c-0.018-0.185-0.05-0.365-0.081-0.545c-0.011-0.06-0.016-0.122-0.028-0.182
+	c-0.043-0.215-0.098-0.425-0.159-0.632c-0.007-0.025-0.012-0.052-0.02-0.077c-0.065-0.213-0.141-0.421-0.224-0.625
+	c-0.008-0.021-0.015-0.043-0.023-0.064c-0.081-0.195-0.173-0.384-0.269-0.57c-0.016-0.031-0.029-0.063-0.045-0.094
+	c-0.093-0.173-0.196-0.339-0.301-0.504c-0.027-0.042-0.05-0.086-0.077-0.127c-0.103-0.154-0.216-0.3-0.33-0.446
+	c-0.037-0.048-0.07-0.098-0.109-0.145c-0.142-0.173-0.294-0.338-0.45-0.498c-0.015-0.015-0.027-0.031-0.042-0.046l-104-104
+	c-0.018-0.018-0.038-0.033-0.057-0.051c-0.156-0.153-0.317-0.301-0.486-0.44c-0.055-0.045-0.113-0.083-0.169-0.126
+	c-0.138-0.107-0.275-0.214-0.42-0.311c-0.051-0.034-0.105-0.062-0.156-0.095c-0.156-0.099-0.312-0.197-0.475-0.284
+	c-0.036-0.019-0.074-0.035-0.111-0.053c-0.181-0.093-0.365-0.183-0.554-0.262c-0.024-0.01-0.049-0.017-0.074-0.027
+	c-0.202-0.081-0.406-0.157-0.616-0.221c-0.027-0.008-0.054-0.013-0.081-0.021c-0.206-0.06-0.415-0.115-0.628-0.158
+	c-0.063-0.013-0.128-0.018-0.192-0.029c-0.177-0.031-0.354-0.062-0.536-0.08C344.001,0.013,343.751,0,343.5,0h-248
+	C73.72,0,56,17.72,56,39.5v432c0,21.78,17.72,39.5,39.5,39.5h320c21.78,0,39.5-17.72,39.5-39.5v-360
+	C455,111.249,454.987,110.999,454.962,110.751z M351,25.606L429.394,104H375.5c-13.509,0-24.5-10.99-24.5-24.5V25.606z M415.5,496
+	h-320C81.991,496,71,485.01,71,471.5v-432C71,25.99,81.991,15,95.5,15H336v64.5c0,21.78,17.72,39.5,39.5,39.5H440v352.5
+	C440,485.01,429.009,496,415.5,496z" />
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                </svg>
+
+                            </span>
+                            open file
+                        </li>
+                        <li>
+                            <span class="open-file">
+                                <?xml version="1.0" encoding="iso-8859-1"?>
+                                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 298.757 298.757" style="enable-background:new 0 0 298.757 298.757;"
+                                    xml:space="preserve">
+                                    <g>
+                                        <g>
+                                            <path d="M291.701,119.091h-39.95v-29.61c0-3.893-3.156-7.05-7.05-7.05h-95.549l-16.896-35.955
+			c-1.162-2.472-3.648-4.051-6.381-4.051H7.05c-3.893,0-7.05,3.157-7.05,7.05v199.806c0,3.846,3.135,7.051,7.054,7.051
+			c0.004,0,0.008-0.001,0.012-0.001h237.635c2.923,0,5.543-1.805,6.587-4.536l47-123.14
+			C300.048,124.044,296.635,119.091,291.701,119.091z M14.1,56.526h107.299l16.896,35.955c1.162,2.472,3.648,4.051,6.381,4.051
+			h92.975v22.56H54.05c-2.923,0-5.544,1.805-6.587,4.536L14.1,211.04V56.526z M239.846,242.231H17.287l41.618-109.04
+			c10.158,0,212.404,0,222.559,0L239.846,242.231z" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                </svg>
+
+                            </span>
+                            open folder
+                        </li>
+
+                    </ul>
+
+                </div>
+                <div class="below d-block">
+                    <p class="sub-head">recent</p>
+                    <ul class="list-unstyled  start">
+                        <li>folder 1 <span class="mx-2" style="color: var(--brand-text);"> E : \pathname</span></li>
+                        <li>folder 2 <span class="mx-2" style="color: var(--brand-text);"> E : \pathname</span></li>
+                        <li>folder 3 <span class="mx-2" style="color: var(--brand-text);"> E : \pathname</span></li>
+                        <li>more</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="two-block">
+                <div class="brand-box"></div>
+                <p class="sub-head">walkthroughs</p>
+                <ul class="list-unstyled block-ele">
+                    <li class="dummy-text">
+                        <h6>get started</h6>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero </p>
+                    </li>
+                    <li class="dummy-text">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero </p>
+                    </li>
+                    <li class="dummy-text">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero </p>
+                    </li>
+                    <li class="dummy-text">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero </p>
+                    </li>
+
+                </ul>
+                <small class="text-center">more..</small>
+
+            </div>
+
+
+        </div>
+        <footer class="footer-class">
+            <span class="mx-2">
+                <?xml version="1.0" encoding="iso-8859-1"?>
+                <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 212.715 212.715"
+                    style="enable-background:new 0 0 212.715 212.715;" xml:space="preserve">
+                    <g>
+                        <path d="M211.436,187.771L112.843,17.002c-1.34-2.32-3.815-3.75-6.495-3.75c-2.68,0-5.155,1.43-6.495,3.75L1.005,188.213
+		c-1.34,2.32-1.34,5.18,0,7.5c1.34,2.32,3.816,3.75,6.495,3.75h197.695c0.007,0,0.015,0,0.02,0c4.143,0,7.5-3.357,7.5-7.5
+		C212.715,190.41,212.243,188.968,211.436,187.771z M20.49,184.463l85.857-148.711l85.857,148.711H20.49z" />
+                        <path d="M98.848,76.58v63.879c0,4.143,3.357,7.5,7.5,7.5s7.5-3.357,7.5-7.5V76.58c0-4.143-3.357-7.5-7.5-7.5
+		S98.848,72.438,98.848,76.58z" />
+                        <circle cx="106.348" cy="164.007" r="9.328" />
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                </svg>
+
+            </span>
+
+            <div class="mx-2">
+                <span class="go-live">
+                    go live
+
+                </span>
+                <span class="mx-1">
+                    <?xml version="1.0" encoding="iso-8859-1"?>
+                    <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 207.948 207.948"
+                        style="enable-background:new 0 0 207.948 207.948;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <g id="_x3C_Compound_Path_x3E__1_">
+                                    <g>
+                                        <g>
+                                            <path style="fill:white;" d="M104.591,207.474c-14.963,0-27.911-13.643-32.006-33.409H4.286c-1.714,0-3.271-1.024-3.94-2.605
+						c-0.676-1.578-0.344-3.403,0.845-4.653c4.406-4.606,8.6-8.181,12.304-11.338c9.101-7.759,14.598-12.444,14.598-24.54V90.918
+						c0.179-34.429,23.098-65.056,54.91-73.978c1.542-6.993,7.136-16.466,20.965-16.466c13.686,0,19.347,9.777,20.936,16.924
+						c31.988,8.954,55.018,39.392,55.182,73.506v41.343c0,11.724,4.864,15.697,13.675,22.894c3.887,3.171,8.285,6.764,12.995,11.671
+						c1.185,1.242,1.525,3.071,0.845,4.653c-0.673,1.578-2.226,2.605-3.94,2.605h-67.071
+						C132.495,193.832,119.554,207.474,104.591,207.474z M81.776,175.608c3.837,13.757,12.938,23.291,22.815,23.291
+						c9.874,0,18.968-9.534,22.808-23.291H81.776z M15.001,165.487h177.826c-1.553-1.321-3.056-2.548-4.481-3.704
+						c-9.398-7.677-16.824-13.739-16.824-29.536V90.918c-0.15-31.168-21.767-58.901-51.407-65.908
+						c-1.829-0.433-3.16-2.008-3.293-3.883c-0.086-1.21-1.288-12.082-12.848-12.082c-11.9,0-12.794,10.368-12.848,11.556
+						c-0.1,1.904-1.446,3.511-3.3,3.944C58.352,31.502,36.84,59.428,36.679,90.943v39.99c0,16.055-8.167,23.008-17.619,31.068
+						C17.761,163.1,16.401,164.26,15.001,165.487z" />
+                                        </g>
+                                    </g>
+                                </g>
+                                <g>
+                                    <g>
+                                        <path style="fill:white;" d="M126.823,26.746c-0.412,0-0.834-0.061-1.249-0.19c-22.74-6.921-41.497-1.117-41.686-1.056
+					c-2.269,0.716-4.66-0.53-5.383-2.777c-0.723-2.251,0.512-4.66,2.759-5.383c0.862-0.279,21.376-6.721,46.804,1.016
+					c2.265,0.684,3.539,3.081,2.856,5.347C130.359,25.554,128.655,26.746,126.823,26.746z" />
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                    </svg>
+
+
+
+                </span>
+
+
+            </div>
+
+        </footer>
+
+
+    </div>
+</body>
+
+</html>
